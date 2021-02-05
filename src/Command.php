@@ -81,7 +81,7 @@ class Command
     public function getCommandArticle(Article $article): ?CommandArticle
     {
         foreach ($this->commandArticles as $commandArticle){
-            if($commandArticle->getId() === $article->getId()){
+            if($commandArticle->getArticle()->getId() === $article->getId()){
                 return $commandArticle;
             }
         }

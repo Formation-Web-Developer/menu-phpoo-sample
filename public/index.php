@@ -60,10 +60,15 @@ $command2->addArticle($menu->getArticle(6), 2);
 $command2->addArticle($menu->getArticle(4), 4);
 
 /*
+ * Creation d'un tableau qui stock les clients
+ */
+$clients = [$client1, $client2];
+
+/*
  * Création des factures des clients
  */
 $factures = [];
-foreach ([$client1, $client2] as $client){
+foreach ($clients as $client){
     foreach ($client->getCommands() as $command){
         $factures[] = new Facture($command);
     }

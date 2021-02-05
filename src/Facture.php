@@ -57,12 +57,12 @@ class Facture
         $html .= '<div class="ref title">Ref</div><div class="name title">Articles</div><div class="count title">Nombre</div><div class="price title">Prix</div>';
 
         foreach($this->command->getCommandArticles() as $article){
-            $html .= '<div class="ref">'.$article->getArticle()->getId().'</div>';
+            $html .= '<div class="ref">#'.sprintf('%04d', $article->getArticle()->getId()).'</div>';
             $html .= '<div class="name">' . $article->getArticle()->getName() . '<span class="description">'.$article->getArticle()->getDescription().'</span></div>';
-            $html .= '<div class="count">' . $article->getQuantity() . '</div>';
-            $html .= '<div class="price">' . number_format($article->getQuantity() * $article->getArticle()->getPrice(), 2) . '€</div>';
+            $html .= '<div class="count">' . number_format($article->getQuantity(), 0, ',', ' ') . '</div>';
+            $html .= '<div class="price">' . number_format($article->getQuantity() * $article->getArticle()->getPrice(), 2, ',', ' ') . '€</div>';
         }
-        $html .= '<div class="ref"></div><div class="name"></div><div class="count">Total</div><div class="price">' . number_format($this->command->getSold(), 2) . '€</div>';
+        $html .= '<div class="ref"></div><div class="name"></div><div class="count">Total</div><div class="price">' . number_format($this->command->getSold(), 2, ',', ' ') . '€</div>';
         return $html.'</div></div>';
     }
 }
