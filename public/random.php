@@ -32,7 +32,7 @@ $names = [
     'John Doe',
     'Jane Doe',
     'Mike Brown',
-    'Franck Hopper',
+    'Frank Hopper',
     'Aelita Stone',
     'Aude Délaroboi',
 ];
